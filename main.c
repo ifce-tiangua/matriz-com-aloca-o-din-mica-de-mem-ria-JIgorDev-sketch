@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 int main(){
-	int *matriz, linha, coluna, i, j; //foi o jeito trocar aux1 e aux2 por i e j, ta dando "assignment from incompatible"..., acho que possa ter haver com o nome
-
+	int **matriz, linha, coluna, i, j; //foi o jeito trocar aux1 e aux2 por i e j, ta dando "assignment from incompatible"..., acho que possa ter haver com o nome
+        //o burraldo aqui esqueceu que a matriz tinha que ter 2 **
+	
 	scanf("%d %d", &linha, &coluna);
     
     matriz = (int **)malloc(linha * sizeof(int *));
@@ -24,6 +25,7 @@ int main(){
 		for(j = 0; j < coluna; j++){
 			scanf("%d", &matriz[i][j]);
 		}
+		printf("\n");
 	}
 	
 	for(i = 0; i < linha; i++){
@@ -37,6 +39,6 @@ int main(){
 	}
 	
 	free(matriz);
-	//agora vai, não é possivel kkkkk
+	//da ultima vez não foi, tomara que nessa vá...
 return 0;
 }
