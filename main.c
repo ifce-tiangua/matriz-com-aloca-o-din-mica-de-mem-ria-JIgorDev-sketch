@@ -1,15 +1,12 @@
-
-	
-	
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
-	int *matriz, linha, coluna, aux1, aux2;
+	int *matriz, linha, coluna, i, j; //foi o jeito trocar aux1 e aux2 por i e j, ta dando "assignment from incompatible"..., acho que possa ter haver com o nome
 
 	scanf("%d %d", &linha, &coluna);
     
-    matriz = (int**)malloc(linha * sizeof(int*));
+    matriz = (int **)malloc(linha * sizeof(int *));
 	
 	if(matriz == NULL){ //caso a matriz seja vazia
 	   printf("[Matriz vazia]\n");
@@ -17,25 +14,29 @@ int main(){
 		
 	}
 	
-	for(aux1 = 0; aux1 < linha; aux1++){ 
-	matriz[aux1]= (int *) malloc(coluna * sizeof(int));
-	if(matriz[aux1] == NULL)
+	for(i = 0; i < linha; i++){ //for para a alocação da memoria, das colunas de cada linha
+	matriz[i]= (int *)malloc(coluna * sizeof(int));
+	if(matriz[i] == NULL)
 	return 1;
 	}
 	
-	
-	
-	for(aux1 = 0; aux1 < linha; aux1++){
-		for(aux2 = 0; aux2 < coluna; aux2++){
-			printf("%d", matriz[aux1][aux2]);	
+	for(i - 0; i < linha; i++){
+		for(j = 0; j < coluna; j++){
+			scanf("%d", &matriz[i][j]);
 		}
 	}
 	
-	for(aux1 = 0; aux1 < linha; aux1++){
-		free(matriz[aux1]);
+	for(i = 0; i < linha; i++){
+		for(j = 0; j < coluna; j++){
+			printf("%d", matriz[i][j]);	
+		}
+	}
+	
+	for(i = 0; i < linha; i++){
+		free(matriz[i]);
 	}
 	
 	free(matriz);
-	
+	//agora vai, não é possivel kkkkk
 return 0;
 }
