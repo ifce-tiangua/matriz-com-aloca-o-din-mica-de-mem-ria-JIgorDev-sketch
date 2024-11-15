@@ -9,10 +9,6 @@ int main(){
     	printf("[Matriz vazia]\n");
         return 1;
 	}
-    
-    else if(linha < 0 || coluna < 0) 
-        return 1;
-	
 	
 	matriz = (int **)malloc(linha * sizeof(int *));
 	
@@ -38,7 +34,7 @@ int main(){
 	
 	for(i = 0; i < linha; i++){
 		for(j = 0; j < coluna; j++){
-			printf("%d ", matriz[i][j]);	
+			printf("%d", matriz[i][j]);	
 		}
 			printf("\n");
 	}
