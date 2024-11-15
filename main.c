@@ -10,19 +10,19 @@ int main(){
         return 1;
 	}
     
-    else if(linha < 0 || coluna < 0) //impedir valores negativos para a quantidade de linhas e colunas
+    else if(linha < 0 || coluna < 0) 
         return 1;
 	
 	
 	matriz = (int **)malloc(linha * sizeof(int *));
 	
-	if(matriz == NULL){ //caso a matriz seja vazia
+	if(matriz == NULL){
 	   printf("[Matriz vazia]\n");
 	   return 1;
 		
 	}
 	
-	for(i = 0; i < linha; i++){ //for para a alocação da memoria, das colunas de cada linha
+	for(i = 0; i < linha; i++){ 
 	    matriz[i]= (int *)malloc(coluna * sizeof(int));
 	    if(matriz[i] == NULL){
 	       printf("[Matriz vazia]\n");
@@ -43,11 +43,11 @@ int main(){
 			printf("\n");
 	}
 	
-	for(i = 0; i < linha; i++){ //free para as colunas
+	for(i = 0; i < linha; i++){ 
 		free(matriz[i]); 
 	}
 	
-	free(matriz); // free para as linhas
+	free(matriz); 
 	
 return 0;
 }
