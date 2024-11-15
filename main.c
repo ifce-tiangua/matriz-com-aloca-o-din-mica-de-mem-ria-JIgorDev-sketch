@@ -31,7 +31,7 @@ int main(){
 		for(j = 0; j < coluna; j++){
 			printf("%d", matriz[i][j]);	
 			if(j < coluna - 1)
-			printf("");
+			printf(" ");
 		}
 			printf("\n");
 	}
