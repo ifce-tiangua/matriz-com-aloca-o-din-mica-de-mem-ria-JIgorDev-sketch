@@ -21,6 +21,10 @@ int main(){
         matriz[i] = (int *)malloc(coluna * sizeof(int));
         if(matriz[i] == NULL){
             printf("[Matriz vazia]\n");
+            for (int k = 0; k < i; k++) { // Liberar a memória alocada até o momento
+                free(matriz[k]);
+            }
+            free(matriz);
             return 0;
         }
     }
