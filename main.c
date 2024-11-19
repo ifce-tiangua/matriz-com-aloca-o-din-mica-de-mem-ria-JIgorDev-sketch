@@ -23,9 +23,10 @@ int main() {
     }
 
     for (i = 0; i < linhas; i++) {
-        for (j = 0; j < colunas; j++) {
+        for (j = 0; j < colunas - 1; j++) {
             printf("%d ", matriz[i][j]);
         }
+        printf("%d", matriz[i][j]);
         printf("\n");
     }
 
