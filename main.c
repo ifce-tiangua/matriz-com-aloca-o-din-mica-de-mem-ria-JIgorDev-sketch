@@ -2,57 +2,29 @@
 #include <stdlib.h>
 
 int main() {
-    int **matriz;
-    int linhas, colunas;
-    int i, j, k;
+    int **matriz, linhas, colunas, i, j;
 
-    if (scanf("%d %d", &linhas, &colunas) != 2) {
-        printf("[Matriz vazia]\n");
+    scanf("%d %d", &linhas, &colunas);
+
+    if (linhas <= 0 || colunas <= 0) {
+        printf("[matriz vazia]\n");
         return 0;
     }
 
-    if (linhas == 0 || colunas == 0) {
-        printf("[Matriz vazia]\n");
-        return 0;
-    }
-
-    matriz = (int **)malloc(linhas * sizeof(int *));
-    if (matriz == NULL) {
-        printf("[Matriz vazia]\n");
-        return 0;
+    matriz = malloc(linhas * sizeof(int *));
+    for (i = 0; i < linhas; i++) {
+        matriz[i] = malloc(colunas * sizeof(int));
     }
 
     for (i = 0; i < linhas; i++) {
-        matriz[i] = (int *)malloc(colunas * sizeof(int));
-        if (matriz[i] == NULL) {
-            for (k = 0; k < i; k++) {
-                free(matriz[k]);
-            }
-            free(matriz);
-            printf("[Matriz vazia]\n");
-            return 0;
+        for (j = 0; j < colunas; j++) {
+            scanf("%d", &matriz[i][j]);
         }
     }
 
     for (i = 0; i < linhas; i++) {
         for (j = 0; j < colunas; j++) {
-            if (scanf("%d", &matriz[i][j]) != 1) {
-                for (k = 0; k < linhas; k++) {
-                    free(matriz[k]);
-                }
-                free(matriz);
-                printf("[Matriz vazia]\n");
-                return 0;
-            }
-        }
-    }
-
-    for (i = 0; i < linhas; i++) {
-        for (j = 0; j < colunas; j++) {
-            printf("%d", matriz[i][j]);
-            if (j < colunas - 1) {
-                printf(" ");
-            }
+            printf("%d ", matriz[i][j]);
         }
         printf("\n");
     }
